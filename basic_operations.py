@@ -1,5 +1,10 @@
-number1 =20
-number2 =30
-print("Addition of", number1 ,"and",number2," is",number1+number2)
-print("Subtraction of", number1 ,"from",number2," is",number2-number1)
-print("Multiplication of", number1 ,"and",number2," is",number1*number2)
+number1 = 10
+number2 = 5
+
+addition = number1 + number2
+subtraction = number1 - number2
+multiplication = number1 * number2
+
+print(f"Addition of {number1} and {number2} is {addition}")
+print(f"Subtraction of {number1} and {number2} is {subtraction}")
+print(f"Multiplication of {number1} and {number2} is {multiplication}")
