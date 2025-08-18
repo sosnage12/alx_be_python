@@ -1,24 +1,38 @@
-# daily_reminder.py
-# Personal daily reminder program
+# Task Reminder Program
 
-# Prompt user for task
+# Check if file exists and not empty
+import os
+
+filename = "tasks.txt"
+if not os.path.exists(filename) or os.path.getsize(filename) == 0:
+    with open(filename, "w") as f:
+        f.write("Task Reminder Log\n")
+
+# Prompt user for inputs
 task = input("Enter your task: ")
-priority = input("Priority (high/medium/low): ").lower()
-time_bound = input("Is it time-bound? (yes/no): ").lower()
+time_bound = input("Is this task time-bound? (yes/no): ").lower()
+priority = input("Enter priority (High/Medium/Low): ").capitalize()
 
-# Process with match-case
+# Match-case example (reaction based on priority)
 match priority:
-    case "high":
-        reminder = f"Reminder: '{task}' is a high priority task"
-    case "medium":
-        reminder = f"Reminder: '{task}' is a medium priority task"
-    case "low":
-        reminder = f"Note: '{task}' is a low priority task"
+    case "High":
+        reaction = " This needs your full focus!"
+    case "Medium":
+        reaction = " Manage this task soon."
+    case "Low":
+        reaction = " Handle it when you have free time."
     case _:
-        reminder = f"'{task}' has an unknown priority"
+        reaction = "Unknown priority level."
 
-# Add time sensitivity
+# If statement for time-bound modification
 if time_bound == "yes":
-    reminder += " that requires immediate attention today!"
+    reminder = f"Reminder: '{task}' is a {priority} priority task and requires immediate attention! {reaction}"
+else:
+    reminder = f"Reminder: '{task}' is a {priority} priority task. {reaction}"
 
+# Provide a customized reminder
 print(reminder)
+
+# Save reminder into file
+with open(filename, "a") as f:
+    f.write(reminder + "\n")
