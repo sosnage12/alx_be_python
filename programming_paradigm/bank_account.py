@@ -1,7 +1,7 @@
 class BankAccount:
     def __init__(self, initial_balance=0):
         """Initialize the account with an optional starting balance."""
-        self.__account_balance = initial_balance   # Encapsulation with private attribute
+        self.__account_balance = initial_balance   # Encapsulated (private) attribute
 
     def deposit(self, amount):
         """Add money to the account balance."""
@@ -16,5 +16,5 @@ class BankAccount:
         return False
 
     def display_balance(self):
-        """Print the current balance in a user-friendly format."""
-        print(f"Current Balance: ${self.__account_balance}")
+        """Print the current balance in a user-friendly format (2 decimals)."""
+        print(f"Current Balance: ${self.__account_balance:.2f}")
